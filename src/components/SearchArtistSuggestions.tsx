@@ -41,9 +41,8 @@ export default function SearchArtistSuggestions({
                 />
                 <CommandList>
                     <CommandEmpty>No results found.</CommandEmpty>
-                    {
-                        !(!isLoading && suggestions.length === 0) && (
-                            <CommandGroup heading="Artists">
+                    {!(!isLoading && suggestions.length === 0) && (
+                        <CommandGroup heading="Artists">
                             {isLoading && (
                                 <CommandItem disabled>
                                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -52,8 +51,9 @@ export default function SearchArtistSuggestions({
                             )}
                             {!isLoading &&
                                 suggestions.map((artist) => (
-                                    <CommandItem key={artist.id} onSelect={() => handleSelect(artist)}>
-                                        {/* <Search className="mr-2 h-4 w-4" /> */}
+                                    <CommandItem
+                                        key={artist.id}
+                                        onSelect={() => handleSelect(artist)}>
                                         <div className="flex gap-4">
                                             <div className="relative w-8 h-8 rounded-full overflow-hidden">
                                                 <Image
@@ -63,7 +63,7 @@ export default function SearchArtistSuggestions({
                                                     style={{
                                                         objectFit: 'cover'
                                                     }}
-                                                    sizes='32px'
+                                                    sizes="32px"
                                                 />
                                             </div>
                                             <div className="flex flex-col ml-2 justify-center">
@@ -73,8 +73,7 @@ export default function SearchArtistSuggestions({
                                     </CommandItem>
                                 ))}
                         </CommandGroup>
-                        )    
-                    }
+                    )}
                 </CommandList>
             </Command>
         </CommandDialog>

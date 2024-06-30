@@ -19,12 +19,11 @@ interface Artist {
 }
 
 async function fetchSuggestions(query: string): Promise<Artist[]> {
-    if (query.length < 2) return []
-    const res = await fetch(`/api/search/artists?q=${encodeURIComponent(query)}`)
-    if (!res.ok) throw new Error('Failed to fetch suggestions')
-    return res.json()
+    if (query.length < 2) return [];
+    const res = await fetch(`/api/search/artists?q=${encodeURIComponent(query)}`);
+    if (!res.ok) throw new Error('Failed to fetch suggestions');
+    return res.json();
 }
-  
 
 export default function SearchArtist() {
     const [open, setOpen] = useState(false);
