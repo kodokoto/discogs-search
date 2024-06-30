@@ -7,12 +7,7 @@ import {
     TableHeader,
     TableRow
 } from '@/components/ui/table';
-import { 
-    Card, 
-    CardContent, 
-    CardHeader, 
-    CardTitle 
-} from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function SkeletonTable() {
     return (
@@ -26,7 +21,7 @@ export default function SkeletonTable() {
                         <TableRow>
                             <TableHead className=" w-[100px]"></TableHead>
                             <TableHead>Title</TableHead>
-                            <TableHead className='hidden md:table-cell'>Year Released</TableHead>
+                            <TableHead className="hidden md:table-cell">Year Released</TableHead>
                             <TableHead className="hidden md:table-cell">Label</TableHead>
                         </TableRow>
                     </TableHeader>

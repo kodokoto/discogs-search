@@ -43,3 +43,15 @@ export async function getArtistReleases(
     const data = await res.json();
     return data.releases;
 }
+
+export async function getReleaseDetails(releaseId: number): Promise<any> {
+    const res = await fetch(
+        `${DISCOGS_API_URL}/releases/${releaseId}?token=${process.env.DISCOGS_TOKEN}`,
+        {
+            next: { revalidate: 86400 }
+        }
+    );
+    if (!res.ok) throw new Error('Failed to fetch release details');
+    const data = await res.json();
+    return data;
+}

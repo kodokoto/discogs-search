@@ -9,7 +9,7 @@ export default function CoverImage({ src, alt }: { src: string; alt: string }) {
                     <Image src={src} alt={alt} fill objectFit="cover" priority />
                 </AspectRatio>
             </div>
-            <div className="rounded-lg shadow-sm row-start-2 row-span-19 col-start-1 col-span-19 bg-gradient-to-tr from-primary/75 to-primary"></div>
+            <div className="rounded-lg shadow-sm row-start-2 row-span-19 col-start-1 col-span-19 bg-gradient-to-tr from-primary/25 to-primary"></div>
         </div>
     );
 }

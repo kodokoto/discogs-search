@@ -11,7 +11,7 @@ export default function ArtistPage({ params }: { params: { id: string } }) {
             <Suspense fallback={<ArtistCardSkeleton />}>
                 <ArtistCard artistId={params.id} />
             </Suspense>
-            
+
             <Separator orientation="horizontal" />
 
             <Suspense fallback={<ReleasesTableSkeleton />}>
