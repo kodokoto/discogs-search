@@ -14,9 +14,12 @@ export async function searchArtists(query: string): Promise<any[]> {
 }
 
 export async function getArtist(artistId: number): Promise<any> {
-    const res = await fetch(`${DISCOGS_API_URL}/artists/${artistId}?token=${process.env.DISCOGS_TOKEN}`, {
-        next: { revalidate: 3600 }
-    });
+    const res = await fetch(
+        `${DISCOGS_API_URL}/artists/${artistId}?token=${process.env.DISCOGS_TOKEN}`,
+        {
+            next: { revalidate: 3600 }
+        }
+    );
     if (!res.ok) throw new Error('Failed to fetch artist');
     const data = await res.json();
     // just return the name, profile and first image
@@ -27,3 +30,16 @@ export async function getArtist(artistId: number): Promise<any> {
     };
 }
 
+export async function getArtistReleases(
+    artistId: number,
+    page: number = 1,
+    perPage: number = 5
+): Promise<any[]> {
+    const res = await fetch(
+        `${DISCOGS_API_URL}/artists/${artistId}/releases?sort=year&sort_order=desc&page=${page}&per_page=${perPage}&token=${process.env.DISCOGS_TOKEN}`,
+        { next: { revalidate: 3600 } }
+    );
+    if (!res.ok) throw new Error(`Failed to fetch releases for artist ${artistId}: ${res}`);
+    const data = await res.json();
+    return data.releases;
+}
