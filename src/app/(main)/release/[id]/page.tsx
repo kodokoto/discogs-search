@@ -42,7 +42,11 @@ export default async function ReleasePage({
                     <div className="flex w-full md:w-[40%] items-center justify-center pb-6 md:pb-0">
                         <AspectRatio ratio={1}>
                             <CoverImage
-                                src={releaseDetails.images[0].uri}
+                                src={
+                                    releaseDetails.images
+                                        ? releaseDetails.images[0].uri
+                                        : '/disc.svg'
+                                }
                                 alt={releaseDetails.title}
                             />
                         </AspectRatio>

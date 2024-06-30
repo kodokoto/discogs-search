@@ -8,10 +8,11 @@ import {
     TableHeader,
     TableRow
 } from '@/components/ui/table';
+import { ArtistRelease } from '@/lib/types';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
-export default function RealeasesTable({ releases }: { releases: any }) {
+export default function RealeasesTable({ releases }: { releases: ArtistRelease[] }) {
     const router = useRouter();
     return (
         <Table>

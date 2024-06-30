@@ -8,6 +8,7 @@ import { useDebounce } from 'use-debounce';
 import { Button } from './ui/button';
 
 import dynamic from 'next/dynamic';
+import type { SearchArtist } from '@/lib/types';
 
 const SearchArtistSuggestions = dynamic(() => import('./SearchArtistSuggestions'), {
     loading: () => <div></div>
@@ -18,7 +19,7 @@ interface Artist {
     title: string;
 }
 
-async function fetchSuggestions(query: string): Promise<Artist[]> {
+async function fetchSuggestions(query: string): Promise<SearchArtist[]> {
     if (query.length < 2) return [];
     const res = await fetch(`/api/search/artists?q=${encodeURIComponent(query)}`);
     if (!res.ok) throw new Error('Failed to fetch suggestions');

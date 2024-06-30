@@ -1,9 +1,9 @@
 import 'server-only';
-
+import { ArtistData, ArtistRelease, Release, SearchArtist } from '../lib/types';
 const DISCOGS_API_URL = 'https://api.discogs.com';
 
 // TODO: Implement Astist, Release and ReleaseDetails types
-export async function searchArtists(query: string): Promise<any[]> {
+export async function searchArtists(query: string): Promise<SearchArtist[]> {
     const res = await fetch(
         `${DISCOGS_API_URL}/database/search?q=${query}&type=artist&per_page=10&token=${process.env.DISCOGS_TOKEN}`,
         { next: { revalidate: 300 } }
@@ -13,7 +13,7 @@ export async function searchArtists(query: string): Promise<any[]> {
     return data.results;
 }
 
-export async function getArtist(artistId: number): Promise<any> {
+export async function getArtist(artistId: number): Promise<ArtistData> {
     const res = await fetch(
         `${DISCOGS_API_URL}/artists/${artistId}?token=${process.env.DISCOGS_TOKEN}`,
         {
@@ -34,7 +34,7 @@ export async function getArtistReleases(
     artistId: number,
     page: number = 1,
     perPage: number = 5
-): Promise<any[]> {
+): Promise<ArtistRelease[]> {
     const res = await fetch(
         `${DISCOGS_API_URL}/artists/${artistId}/releases?sort=year&sort_order=desc&page=${page}&per_page=${perPage}&token=${process.env.DISCOGS_TOKEN}`,
         { next: { revalidate: 3600 } }
@@ -44,7 +44,7 @@ export async function getArtistReleases(
     return data.releases;
 }
 
-export async function getReleaseDetails(releaseId: number): Promise<any> {
+export async function getReleaseDetails(releaseId: number): Promise<Release> {
     const res = await fetch(
         `${DISCOGS_API_URL}/releases/${releaseId}?token=${process.env.DISCOGS_TOKEN}`,
         {

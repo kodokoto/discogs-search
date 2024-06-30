@@ -1,14 +1,7 @@
+import type { ReleaseTrack } from '@/lib/types';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from './ui/table';
 
-export type Track = {
-    position: string;
-    title: string;
-    duration: string;
-    artists: { id: string; name: string }[];
-    extraartists: { id: string; name: string }[];
-};
-
-export default function Tracklist({ tracklist }: { tracklist: Track[] }) {
+export default function Tracklist({ tracklist }: { tracklist: ReleaseTrack[] }) {
     return (
         <Table>
             <TableHeader>
