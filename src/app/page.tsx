@@ -1,5 +1,6 @@
 import Logo from '@/components/Logo';
 import Footer from '@/components/Footer';
+import SearchArtist from '@/components/SearchArtist';
 
 export default function Home() {
     return (
@@ -8,7 +9,7 @@ export default function Home() {
                 <div className="fixed top-1/3 flex flex-col justify-center items-center">
                     <Logo className="text-3xl sm:text-5xl md:text-7xl mb-10" />
                     <div className="flex flex-row justify-center w-[80%]">
-                        <input type="text" className="w-[80%] p-2 border-2 border-gray-300 rounded-l-md" />
+                        <SearchArtist />
                     </div>
                 </div>
             </main>
