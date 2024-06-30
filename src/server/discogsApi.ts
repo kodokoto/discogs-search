@@ -26,7 +26,7 @@ export async function getArtist(artistId: number): Promise<ArtistData> {
     return {
         name: data.name,
         profile: parseArtistProfile(data.profile),
-        image: data.images ? data.images[0] : '/disc.svg'
+        image: data.images ? data.images[0].resource_url : '/disc.svg'
     };
 }
 

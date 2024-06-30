@@ -17,7 +17,7 @@ export default async function ArtistCard({ artistId }: { artistId: string }) {
                 <div className="w-[50%]">
                     <AspectRatio ratio={1}>
                         <CoverImage
-                            src={artist.image.resource_url ?? artist.image}
+                            src={artist.image}
                             alt={artist.name}
                         />
                     </AspectRatio>
