@@ -2,6 +2,7 @@ import { getArtist } from '@/server/discogsApi';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import CoverImage from './CoverImage';
+import ExpandableText from './ExpandableText';
 
 export default async function ArtistCard({ artistId }: { artistId: string }) {
     const artist = await getArtist(Number(artistId));
@@ -23,9 +24,7 @@ export default async function ArtistCard({ artistId }: { artistId: string }) {
                 </div>
                 <div className="md:w-[80%]">
                     <div className="font-semibold">About</div>
-                    <p>
-                        {artist.profile}
-                    </p>
+                    <ExpandableText text={artist.profile} />
                 </div>
             </CardContent>
         </Card>
