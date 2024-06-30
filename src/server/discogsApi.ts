@@ -25,7 +25,7 @@ export async function getArtist(artistId: number): Promise<ArtistData> {
     // just return the name, profile and first image
     return {
         name: data.name,
-        profile: data.profile,
+        profile: parseArtistProfile(data.profile),
         image: data.images ? data.images[0] : '/disc.svg'
     };
 }
@@ -54,4 +54,11 @@ export async function getReleaseDetails(releaseId: number): Promise<Release> {
     if (!res.ok) throw new Error('Failed to fetch release details');
     const data = await res.json();
     return data;
+}
+
+function parseArtistProfile(profile: string): string {
+    // remove links from artist profile
+    // links are of format [foo=bar] and we just want bar
+    // not perfect, but I don't have the time to reverse engineer a parser for whatever discogs is using
+    return profile.replace(/\[.*?=(.*?)\]/g, '$1');
 }
