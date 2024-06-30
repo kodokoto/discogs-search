@@ -71,6 +71,18 @@ const config = {
             animation: {
                 'accordion-down': 'accordion-down 0.2s ease-out',
                 'accordion-up': 'accordion-up 0.2s ease-out'
+            },
+            gridRow: {
+                'span-19': 'span 19 / span 19'
+            },
+            gridColumn: {
+                'span-19': 'span 19 / span 19'
+            },
+            gridTemplateColumns: {
+                20: 'repeat(20, minmax(0, 1fr))'
+            },
+            gridTemplateRows: {
+                20: 'repeat(20, minmax(0, 1fr))'
             }
         }
     },

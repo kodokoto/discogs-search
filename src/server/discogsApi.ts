@@ -12,3 +12,18 @@ export async function searchArtists(query: string): Promise<any[]> {
     const data = await res.json();
     return data.results;
 }
+
+export async function getArtist(artistId: number): Promise<any> {
+    const res = await fetch(`${DISCOGS_API_URL}/artists/${artistId}?token=${process.env.DISCOGS_TOKEN}`, {
+        next: { revalidate: 3600 }
+    });
+    if (!res.ok) throw new Error('Failed to fetch artist');
+    const data = await res.json();
+    // just return the name, profile and first image
+    return {
+        name: data.name,
+        profile: data.profile,
+        image: data.images ? data.images[0] : '/disc.svg'
+    };
+}
+
