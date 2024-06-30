@@ -57,13 +57,15 @@ export default function SearchArtistSuggestions({
                                         <div className="flex gap-4">
                                             <div className="relative w-8 h-8 rounded-full overflow-hidden">
                                                 <Image
-                                                    src={artist.cover_image}
+                                                    src={artist.cover_image ?? '/disc.svg'}
                                                     alt={artist.title}
                                                     fill
                                                     style={{
                                                         objectFit: 'cover'
                                                     }}
                                                     sizes="32px"
+                                                    placeholder="blur"
+                                                    blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg=="
                                                 />
                                             </div>
                                             <div className="flex flex-col ml-2 justify-center">
