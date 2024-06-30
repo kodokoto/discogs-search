@@ -24,7 +24,7 @@ export default function ExpandableText({ text, maxLength = 300 }: ExpandableText
                     onClick={() => setIsExpanded(!isExpanded)}
                     aria-expanded={isExpanded}
                     aria-controls="artist-profile"
-                    className="text-primary/90 hover:text-primary/80 focus:outline-none focus:ring-2 focus:ring-primary rounded">
+                    className="bg-clip-text text-transparent bg-gradient-to-tr from-violet-700 to-violet-300 hover:text-primary/80 focus:outline-none focus:ring-2 focus:ring-primary rounded">
                     {isExpanded ? 'Read less' : 'Read more'}
                 </button>
             )}

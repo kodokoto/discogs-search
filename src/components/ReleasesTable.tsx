@@ -13,7 +13,6 @@ import { useRouter } from 'next/navigation';
 
 export default function RealeasesTable({ releases }: { releases: any }) {
     const router = useRouter();
-    console.log(releases);
     return (
         <Table>
             <TableHeader>
